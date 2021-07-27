@@ -1,38 +1,229 @@
-.App {
+.app {
+  box-sizing: border-box;
+  text-align: center;
+  color: #121217;
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  font-family: "Sue Ellen Francisco", sans-serif;
+  font-weight: 400;
+}
+
+h2 {
+  font-family: "Sacramento", sans-serif;
+  font-weight: 400;
+}
+
+p {
+  font-family: "Raleway", sans-serif;
+  font-size: 12pt;
+}
+
+input {
+  border-radius: 5px;
+}
+
+/* =============================== Login & Signup Pages =============================== */
+
+header.login h1 {
+  font-size: 60pt;
+  margin: 0 0 0 25vw;
+  text-align: left;
+}
+
+header.login h2 {
+  font-size: 25pt;
+  margin: -35px 20vw 30px 48vw;
+  text-align: right;
+}
+
+#login h2.login, #signup h2.signup {
+  margin: auto;
+  font-family: 'Raleway', sans-serif;
+  font-size: 15pt;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+main.login {
+  display: flex;
+  align-content: center;
+  justify-content: space-evenly;
+  margin-top: 10vh;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+main.signup {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height: 50vh;
+  justify-content: space-around;
 }
 
-.App-link {
-  color: #61dafb;
+main img.login {
+    height: 300px;
+    transform: rotate(-15deg);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+main.login input, main.signup input {
+  background-color: #F0E9E5;
+  border: solid 3px #121217;
+  margin-top: 20px;
+  width: 20vw;
+  height: 5vh;
+  font-family: "Raleway", sans-serif;
+  text-align: center;
+}
+
+main.login input:focus, main.signup input:focus {
+  outline: none;
+  background-color: #ffffff;
+  color: #121217;
+  box-shadow: 5px 5px #EBB8B1;
+}
+
+main.login label {
+  display: none;
+}
+
+main.signup label {
+  font-family: 'Raleway', sans-serif;
+  margin-right: 20px;
+}
+
+input#form-submit {
+  height: 4vh;
+  width: 7vw;
+  margin-top: 30px;
+}
+
+input#form-submit:hover, input#form-submit:focus {
+  cursor: pointer;
+  box-shadow: none;
+  background-color: #EBB8B1;
+}
+
+main.login p {
+  font-family: 'Sacramento', sans-serif;
+  font-size: 15pt;
+} 
+
+/* =============================== Header =============================== */
+header.header {
+  display: flex;
+  align-content: center;
+  margin: 20px 20px 5vh 20px;
+}
+
+header img#bread {
+  height: 60px;
+  margin-left: auto;
+  margin-top: auto;
+  justify-self: flex-end;
+  align-self: flex-end;
+}
+
+img#bread:hover {
+  transform: rotate(5deg);
+  cursor: pointer;
+}
+
+header img#sneezy {
+  height: 80px;
+  transform: rotate(-15deg);
+}
+
+img#sneezy:hover {
+  transform: rotate(5deg);
+  cursor: pointer;
+}
+
+header h1 {
+  font-size: 32pt;
+  margin: 0 0 0 20px;
+  text-align: left;
+}
+
+header h2 {
+  font-size: 15pt;
+  margin: -24px 0 0 170px;
+}
+
+/* =============================== Home Page =============================== */
+div.home-wrapper {
+  display: flex;
+  margin: 0 20px;
+  align-content: center;
+}
+
+div.welcome {
+  background-color: #F0E9E5;
+  height: 400px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: auto 0 auto 60px;
+  padding: 10px;
+}
+
+div.welcome h3 {
+  font-family: 'Sacramento', sans-serif;
+  font-weight: 400;
+  font-size: 20pt;
+  margin: auto;
+}
+
+div.welcome img {
+  height: 70px;
+  width: 70px;
+  margin: 15px auto 0;
+}
+
+div.welcome img:hover {
+  transform: rotate(5deg);
+  cursor: pointer;
+}
+
+div.recipe-collection {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px;
+  justify-content: flex-end;
+}
+
+/* =============================== Recipe Cards =============================== */
+div.recipe-card {
+  height: 250px;
+  width: 200px;
+  margin: 20px;
+  border: 3px solid #121217;
+  border-radius: 5px;
+  background-color: #F0E9E5;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+div.recipe-card:hover {
+  box-shadow: 5px 5px #EBB8B1;
+  cursor: pointer;
+}
+
+div.recipe-card img {
+  width: 150px;
+  margin: auto;
+}
+
+div.recipe-card h4 {
+  font-family: 'Sue Ellen Francisco', sans-serif;
+  font-weight: 400;
+  letter-spacing: 1px;
+  font-size: 15pt;
+  margin: auto;
+}
+
+div.recipe-card p {
+  font-family: 'Raleway', sans-serif;
+  font-size: 10pt;
 }
