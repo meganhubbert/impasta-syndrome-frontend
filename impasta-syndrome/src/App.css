@@ -21,8 +21,13 @@ p {
   font-size: 12pt;
 }
 
-input {
+input, select {
   border-radius: 5px;
+  margin: 5px auto;
+}
+
+ul {
+  list-style-type: none;
 }
 
 /* =============================== Login & Signup Pages =============================== */
@@ -163,7 +168,7 @@ div.welcome {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  margin: auto 0 auto 60px;
+  margin: 60px 0 0 60px;
   padding: 10px;
 }
 

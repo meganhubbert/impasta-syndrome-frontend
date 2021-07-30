@@ -1,8 +1,12 @@
-import React, {Component} from 'react';
+import React from 'react';
 import Sneezy from '../images/sneezy.png';
-import Bread from '../images/bread.png';
+import Logout from '../images/logout.svg';
 
-export default function Header() {
+const Header = (props) => {
+
+    const handleLogOut = () => {
+        props.logOut()
+    }
 
     return (
         <header className="header">
@@ -11,7 +15,9 @@ export default function Header() {
                 <h1>impasta syndrome</h1>
                 <h2> a recipe app for those of us at wheat's end</h2>
             </div>
-            <img src={Bread} alt="bread icon" id="bread"></img>
+            <img src={Logout} alt="bread icon labelled 'log out'" id="bread" onClick={handleLogOut}></img>
         </header>
     )
 }
+
+export default Header;

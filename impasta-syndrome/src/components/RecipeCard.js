@@ -1,5 +1,4 @@
-import React, {Component} from 'react';
-import Header from './Header';
+import React from 'react';
 import Muffins from '../images/muffins.jpg';
 import Edit from '../images/edit.png';
 

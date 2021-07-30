@@ -1,34 +1,42 @@
-import React, {Component} from 'react';
+import React from 'react';
+import {useHistory} from 'react-router';
 import Header from './Header';
 import RecipeCard from './RecipeCard';
 import Book from '../images/recipe-book.png';
 import Edit from '../images/edit.png';
 
-export default function Home() {
+const Home = (props) => {
+
+    const history = useHistory();
+
+    const showRecipeCards = () =>{
+        if (props.user.recipes){
+            return props.user.recipes.map(recipe=><RecipeCard key={recipe.id} recipe={recipe} deleteRecipe={props.deleteRecipe}/>)
+        }
+    }
+
+    const handleEditRecipeClick = () => {
+        history.push("/new-recipe")
+    }
 
     return (
         <div>
-            <Header />
+            <Header logOut={props.logOut} />
             {/* <Searchbar /> */}
             <div className="home-wrapper">
                 <div className="welcome">
-                    <h3>welcome back, username!</h3>
+                    <h3>welcome back, {props.username}!</h3>
                     <img src={Book} alt="logo of a recipe book" />
                     <p>your recipe books</p>
-                    <img src={Edit} alt="pencil" />
+                    <img src={Edit} alt="pencil" onClick={handleEditRecipeClick} />
                     <p>create a new recipe</p>
                 </div>
                 <div className="recipe-collection">
-                    <RecipeCard />
-                    <RecipeCard />
-                    <RecipeCard />
-                    <RecipeCard />
-                    <RecipeCard />
-                    <RecipeCard />
-                    <RecipeCard />
-                    <RecipeCard />
+                    {showRecipeCards()}
                 </div>
             </div>
         </div>
     )
 }
+
+export default Home;
