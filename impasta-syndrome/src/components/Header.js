@@ -1,23 +1,23 @@
 import React from 'react';
 import Sneezy from '../images/sneezy.png';
-import Logout from '../images/logout.svg';
+import {withRouter} from 'react-router-dom';
 
-const Header = (props) => {
 
-    const handleLogOut = () => {
-        props.logOut()
+const Header = () => {
+
+    const handleClick = () => {
+        this.props.history.push('/home')
     }
 
     return (
         <header className="header">
-            <img src={Sneezy} alt="sneezing bread cartoon wearing glasses" className="header" id="sneezy"></img>
+            <img src={Sneezy} alt="sneezing bread cartoon wearing glasses" className="header" id="sneezy" onClick={handleClick} />
             <div className="header-wrapper">
                 <h1>impasta syndrome</h1>
                 <h2> a recipe app for those of us at wheat's end</h2>
             </div>
-            <img src={Logout} alt="bread icon labelled 'log out'" id="bread" onClick={handleLogOut}></img>
         </header>
     )
 }
 
-export default Header;
+export default withRouter(Header);

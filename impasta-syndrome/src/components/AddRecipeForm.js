@@ -99,46 +99,50 @@ class AddRecipeForm extends Component {
             <Header />
             <h2 className="recipe-form">Add New Recipe</h2>
             <form className="recipe-form" onSubmit={this.handleSubmit}>
-                <label htmlFor="recipe-title">Recipe Title</label>
-                <input id="recipe-title" name="recipe-title" type="text" value={this.state.title} onChange={this.handleTitleInput} />
-                <br />
-                <label htmlFor="time">Total Prep &amp; Cook Time:</label>
-                <input id="time" name="time" type="number" value= {this.state.time} onChange={this.handleTimeInput}/>
-                <br />
-                <label htmlFor="meal_type">Meal Type</label>
-                <select name="meal_type" id="meal_type" value={this.state.meal_type} onChange={this.handleMealTypeInput}>
-                    <option value="breakfast">Breakfast</option>
-                    <option value="lunch">Lunch</option>
-                    <option value="dinner">Dinner</option>
-                    <option value="dessert">Dessert</option>
-                    <option value="snack" defaultValue>Snack</option>
-                </select>
-                <br />
-                <label htmlFor="image">Image URL</label>
-                <input id="image" type="text" value={this.state.img} onChange={this.handleImgInput}  />
-                <br />
-                <p htmlFor="ingredients">Ingredients</p>
-                <ul className="recipe-form">
-                    {
-                        this.state.ingredients.map((ingredient, index) => {
-                            return(<li key={index}><input type="text" value={ingredient} onChange={(e)=>{this.updateIngredient(e.target.value, index)}}/></li>)
-                        })
-                    }
+                <div id="recipe-column-one">
+                    <label htmlFor="recipe-title">Recipe Title</label>
+                    <input id="recipe-title" name="recipe-title" type="text" value={this.state.title} onChange={this.handleTitleInput} />
+                    <br />
+                    <label htmlFor="time">Total Prep &amp; Cook Time:</label>
+                    <input id="time" name="time" type="number" value= {this.state.time} onChange={this.handleTimeInput}/>
+                    <br />
+                    <label htmlFor="meal_type">Meal Type</label>
+                    <select name="meal_type" id="meal_type" value={this.state.meal_type} onChange={this.handleMealTypeInput}>
+                        <option value="breakfast">Breakfast</option>
+                        <option value="lunch">Lunch</option>
+                        <option value="dinner">Dinner</option>
+                        <option value="dessert">Dessert</option>
+                        <option value="snack" defaultValue>Snack</option>
+                    </select>
+                    <br />
+                    <label htmlFor="image">Image URL</label>
+                    <input id="image" type="text" value={this.state.img} onChange={this.handleImgInput}  />
+                </div>
+                <div id="recipe-column-two">
+                    <p htmlFor="ingredients">Ingredients</p>
+                    <ul className="recipe-form">
+                        {
+                            this.state.ingredients.map((ingredient, index) => {
+                                return(<li key={index}><input type="text" value={ingredient} onChange={(e)=>{this.updateIngredient(e.target.value, index)}}/></li>)
+                            })
+                        }
 
-                </ul>
-                <button onClick={this.addIngredient}>+</button>
-                <br />
-                <p htmlFor="instructions">Instructions</p>
-                <ul className="recipe-form">
-                    {
-                        this.state.instructions.map((instruction, index) => {
-                            return(<li key={index}><input type="text" value={instruction} onChange={(e)=>{this.updateInstruction(e.target.value, index)}}/></li>)
-                        })
-                    }
-                </ul>
-                <button onClick={this.addInstruction}>+</button>
-                <br />
-                <input className="form-submit" type="submit" value="add recipe" />
+                    </ul>
+                    <button className="recipe-form" onClick={this.addIngredient}></button>
+                </div>
+                <div id="recipe-column-three">
+                    <p htmlFor="instructions">Instructions</p>
+                    <ul className="recipe-form">
+                        {
+                            this.state.instructions.map((instruction, index) => {
+                                return(<li key={index}><input type="text" value={instruction} onChange={(e)=>{this.updateInstruction(e.target.value, index)}}/></li>)
+                            })
+                        }
+                    </ul>
+                    <button className="recipe-form" onClick={this.addInstruction}></button>
+                    <br />
+                    <input className="form-submit" type="submit" value="add recipe" />
+                </div>
             </form>
         </div>
     )}
