@@ -84,7 +84,7 @@ class App extends React.Component {
 
       this.props.history.push("/home")
     } else {
-      alert("incorrect username or password")
+      alert(resp.errors)
     }
   }
 
@@ -105,11 +105,13 @@ class App extends React.Component {
       return <Form 
         formName= "log in"
         handleSubmit={this.handleLoginSubmit}
+        formPar="don't have an account? sign up!"
       />
     } else if (routerProps.location.pathname === '/signup') {
       return <Form 
         formName= "create an account"
         handleSubmit={this.handleRegisterSubmit}
+        formPar= "back to login"
       />
     }
   }
@@ -138,12 +140,6 @@ class App extends React.Component {
     }
   }
 
-  addRecipe = (recipe) => {
-    this.setState({
-      recipes: [...this.state.recipes, recipe]
-    })
-  }
-
   render() {
     console.log(this.state)
     return (
@@ -153,7 +149,7 @@ class App extends React.Component {
             <Route exact path="/" render={this.renderForm} />
             <Route path="/signup" render={this.renderForm} />
             <Route path="/new-recipe" render={this.renderAddRecipeForm} />
-            {/* <Route render={ () => <p>Page not Found</p> } /> */}
+            <Route render={ () => <p>Page not Found</p> } />
           </Switch>
         </div>
     );

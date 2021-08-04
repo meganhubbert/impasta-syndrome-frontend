@@ -11,11 +11,11 @@ const Home = (props) => {
 
     const showRecipeCards = () =>{
         if (props.user.recipes){
-            return props.user.recipes.map(recipe=><RecipeCard key={recipe.id} recipe={recipe} deleteRecipe={props.deleteRecipe}/>)
+            return props.user.recipes.map(recipe => <RecipeCard key={recipe.id} recipe={recipe} deleteRecipe={props.deleteRecipe}/>)
         }
     }
 
-    const handleEditRecipeClick = () => {
+    const handleCreateRecipeClick = () => {
         history.push("/new-recipe")
     }
 
@@ -25,10 +25,10 @@ const Home = (props) => {
             {/* <Searchbar /> */}
             <div className="home-wrapper">
                 <div className="welcome">
-                    <h3>welcome back, {props.username}!</h3>
+                    <h3>welcome back, {props.user.username}!</h3>
                     <img src={Book} alt="logo of a recipe book" />
                     <p>your recipe books</p>
-                    <img src={Edit} alt="pencil" onClick={handleEditRecipeClick} />
+                    <img src={Edit} alt="pencil" onClick={handleCreateRecipeClick} />
                     <p>create a new recipe</p>
                 </div>
                 <div className="recipe-collection">

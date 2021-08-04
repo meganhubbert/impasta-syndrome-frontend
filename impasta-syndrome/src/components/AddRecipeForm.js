@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
+import {withRouter} from 'react-router-dom';
 import Header from './Header';
 
-export default class AddRecipeForm extends Component {
+class AddRecipeForm extends Component {
 
     state = {
         title: "",
@@ -87,6 +88,7 @@ export default class AddRecipeForm extends Component {
             .then((recipe) => {
                 if(recipe.id){
                     this.props.addRecipe(recipe)
+                    this.props.history.push('/home')
                 }
             })
     }
@@ -115,8 +117,8 @@ export default class AddRecipeForm extends Component {
                 <label htmlFor="image">Image URL</label>
                 <input id="image" type="text" value={this.state.img} onChange={this.handleImgInput}  />
                 <br />
-                <label htmlFor="ingredients">Ingredients</label>
-                <ul id="ingredients">
+                <p htmlFor="ingredients">Ingredients</p>
+                <ul className="recipe-form">
                     {
                         this.state.ingredients.map((ingredient, index) => {
                             return(<li key={index}><input type="text" value={ingredient} onChange={(e)=>{this.updateIngredient(e.target.value, index)}}/></li>)
@@ -126,8 +128,8 @@ export default class AddRecipeForm extends Component {
                 </ul>
                 <button onClick={this.addIngredient}>+</button>
                 <br />
-                <label htmlFor="instructions">Instructions</label>
-                <ul id="instructions">
+                <p htmlFor="instructions">Instructions</p>
+                <ul className="recipe-form">
                     {
                         this.state.instructions.map((instruction, index) => {
                             return(<li key={index}><input type="text" value={instruction} onChange={(e)=>{this.updateInstruction(e.target.value, index)}}/></li>)
@@ -136,8 +138,10 @@ export default class AddRecipeForm extends Component {
                 </ul>
                 <button onClick={this.addInstruction}>+</button>
                 <br />
-                <input type="submit" value="add recipe" />
+                <input className="form-submit" type="submit" value="add recipe" />
             </form>
         </div>
     )}
 }
+
+export default withRouter(AddRecipeForm);

@@ -26,10 +26,6 @@ input, select {
   margin: 5px auto;
 }
 
-ul {
-  list-style-type: none;
-}
-
 /* =============================== Login & Signup Pages =============================== */
 
 header.login h1 {
@@ -70,7 +66,7 @@ main img.login {
     transform: rotate(-15deg);
 }
 
-main.login input, main.signup input {
+input, select {
   background-color: #F0E9E5;
   border: solid 3px #121217;
   margin-top: 20px;
@@ -80,7 +76,7 @@ main.login input, main.signup input {
   text-align: center;
 }
 
-main.login input:focus, main.signup input:focus {
+input:focus, select:focus {
   outline: none;
   background-color: #ffffff;
   color: #121217;
@@ -96,13 +92,13 @@ main.signup label {
   margin-right: 20px;
 }
 
-input#form-submit {
+input.form-submit {
   height: 4vh;
   width: 7vw;
   margin-top: 30px;
 }
 
-input#form-submit:hover, input#form-submit:focus {
+input.form-submit:hover, input.form-submit:focus {
   cursor: pointer;
   box-shadow: none;
   background-color: #EBB8B1;
@@ -121,7 +117,7 @@ header.header {
 }
 
 header img#bread {
-  height: 60px;
+  height: 75px;
   margin-left: auto;
   margin-top: auto;
   justify-self: flex-end;
@@ -163,8 +159,9 @@ div.home-wrapper {
 
 div.welcome {
   background-color: #F0E9E5;
-  height: 400px;
-  width: 300px;
+  height: 450px;
+  width: 200px;
+  min-width: 200px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -175,7 +172,7 @@ div.welcome {
 div.welcome h3 {
   font-family: 'Sacramento', sans-serif;
   font-weight: 400;
-  font-size: 20pt;
+  font-size: 25pt;
   margin: auto;
 }
 
@@ -188,18 +185,50 @@ div.welcome img {
 div.welcome img:hover {
   transform: rotate(5deg);
   cursor: pointer;
+  
 }
 
 div.recipe-collection {
   display: flex;
   flex-wrap: wrap;
-  margin: 20px;
+  margin: 20px 20px 20px 100px;
   justify-content: flex-end;
 }
 
+/* =============================== Create Recipe Form =============================== */
+
+ul.recipe-form {
+  list-style-type: none;
+  padding: 0;
+}
+
+form.recipe-form {
+  display: flex;
+  flex-flow: column;
+  justify-items: space-evenly;
+  align-items: center;
+}
+
+form.recipe-form p, form.recipe-form label {
+  margin: 3px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 12pt;
+}
+
+form.recipe-form input {
+  margin: 3px;
+  height: 20px;
+}
+
+form.recipe-form input.form-submit {
+  height: 25px;
+  width: 100px;
+}
+
+
 /* =============================== Recipe Cards =============================== */
 div.recipe-card {
-  height: 250px;
+  height: 300px;
   width: 200px;
   margin: 20px;
   border: 3px solid #121217;
@@ -217,6 +246,8 @@ div.recipe-card:hover {
 
 div.recipe-card img {
   width: 150px;
+  height: 150px;
+  object-fit: cover;
   margin: auto;
 }
 
@@ -231,4 +262,48 @@ div.recipe-card h4 {
 div.recipe-card p {
   font-family: 'Raleway', sans-serif;
   font-size: 10pt;
+}
+
+/* =============================== Recipe Modals =============================== */
+
+img.modal {
+  max-width: 70%;
+}
+
+div.modal-wrapper {
+  display: flex;
+  flex-flow: row;
+  margin-top: 15px;
+  margin-left: 15px;
+}
+
+div.column-one, div.column-two {
+  width: 45%;
+  display: flex;
+  flex-flow: column;
+}
+
+div.button-wrapper {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+button.modal {
+  justify-self: center;
+  width: 50px;
+  margin: 15px;
+}
+
+h4.modal {
+  font-family: 'Sue Ellen Francisco', 'sans-serif';
+  font-weight: 400;
+  font-size: 25pt;
+  margin-top: 0;
+}
+
+p.modal{
+  font-family: 'Sacramento', 'sans-serif';
+  font-size: 18pt;
+  margin: 10px;
 }

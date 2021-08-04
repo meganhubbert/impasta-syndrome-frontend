@@ -20,9 +20,14 @@ class Form extends Component {
         })
     }
 
+    handleClick = (e) => {
+        
+    }
+
     render (){
         let {username, password} = this.state;
         let {formName} = this.props;
+        let {formPar} = this.props;
 
         return(
         <article className="container" id="login">
@@ -49,8 +54,9 @@ class Form extends Component {
                             onChange={this.handleChange}
                         />
                         <br />
-                        <input id="form-submit" type="submit" value="submit"/>
+                        <input className="form-submit" type="submit" value="submit"/>
                     </form>
+                    <p>{formPar}</p>
                 </section>
         </main>
         </article>
