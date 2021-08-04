@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Sneezy from '../images/sneezy.png';
+import { Link } from 'react-router-dom';
 
 class Form extends Component {
 
@@ -28,6 +29,7 @@ class Form extends Component {
         let {username, password} = this.state;
         let {formName} = this.props;
         let {formPar} = this.props;
+        let {link} = this.props;
 
         return(
         <article className="container" id="login">
@@ -56,7 +58,7 @@ class Form extends Component {
                         <br />
                         <input className="form-submit" type="submit" value="submit"/>
                     </form>
-                    <p>{formPar}</p>
+                    <Link to={link}>{formPar}</Link>
                 </section>
         </main>
         </article>

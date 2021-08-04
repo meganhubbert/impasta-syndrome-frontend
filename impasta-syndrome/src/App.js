@@ -13,6 +13,8 @@ class App extends React.Component {
     boards: [],
     recipes: [],
     token: "",
+    filter: "",
+    recipes: [],
   }
 
   componentDidMount(){
@@ -106,12 +108,14 @@ class App extends React.Component {
         formName= "log in"
         handleSubmit={this.handleLoginSubmit}
         formPar="don't have an account? sign up!"
+        link="/signup"
       />
     } else if (routerProps.location.pathname === '/signup') {
       return <Form 
         formName= "create an account"
         handleSubmit={this.handleRegisterSubmit}
         formPar= "back to login"
+        link="/"
       />
     }
   }
@@ -122,6 +126,9 @@ class App extends React.Component {
         user = {this.state}
         logOut={this.logOut}
         deleteRecipe={this.deleteRecipe}
+        filter={this.state.filter}
+        updateFilterState={this.updateFilterState}
+        arrayOfRecipes={this.newArrayOfRecipes}
       />
     } else {
       return <Redirect to="/login" />
@@ -140,8 +147,18 @@ class App extends React.Component {
     }
   }
 
+  updateFilterState= (value) => {
+    this.setState({
+      filter: value
+    })
+  }
+
   render() {
-    console.log(this.state)
+    let arrayOfRecipes = this.state.recipes
+    let newArrayOfRecipes = arrayOfRecipes.filter((recipeObj) => { 
+      return (recipeObj.recipe_title.toLowerCase().includes(this.state.filter.toLowerCase()))
+      })
+
     return (
         <div className="app">
           <Switch>

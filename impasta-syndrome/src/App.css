@@ -21,6 +21,19 @@ p {
   font-size: 12pt;
 }
 
+a {
+  font-family: 'Sacramento', sans-serif;
+  font-size: 15pt;
+  line-height: 75px;
+  text-decoration: none;
+  color: #121217;
+}
+
+a:hover {
+  color: #ac683c;
+  font-size: 18pt;
+}
+
 input, select {
   border-radius: 5px;
   margin: 5px auto;
@@ -149,6 +162,28 @@ header h1 {
 header h2 {
   font-size: 15pt;
   margin: -24px 0 0 170px;
+}
+
+header input {
+  height: 25px;
+  margin-top: 45px;
+  margin-left: 20vw;
+}
+
+header input:focus {
+  box-shadow: none;
+  border: 3px solid #EBB8B1;
+}
+
+header button {
+  width: 25px;
+  height: 25px;
+  background-image: url(./images/search.png);
+  background-size: cover;
+  background-color: #ffffff;
+  border: none;
+  cursor: pointer;
+  margin-left: 15px;
 }
 
 /* =============================== Home Page =============================== */
@@ -334,8 +369,37 @@ div.button-wrapper {
 
 button.modal {
   justify-self: center;
-  width: 50px;
+  width: 25px;
+  height: 25px;
+  border: none;
+  background-color: #ffffff;
   margin: 15px;
+  cursor: pointer;
+}
+
+button.modal#delete {
+  background-image: url(./images/delete.png);
+  background-size: cover;
+}
+
+button.modal#edit {
+  background-image: url(./images/edit.png);
+  background-size: cover;
+}
+
+button.modal#exit {
+  background-image: url(./images/exit.png);
+  background-size: cover;
+}
+
+button.modal#exit:hover {
+  background-image: url(./images/exit-active.png);
+}
+
+button.modal:hover {
+  width: 30px;
+  height: 30px;
+  background-size: cover;
 }
 
 h4.modal {

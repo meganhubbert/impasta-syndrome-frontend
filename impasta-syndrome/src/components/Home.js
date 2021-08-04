@@ -4,6 +4,7 @@ import RecipeCard from './RecipeCard';
 import Book from '../images/recipe-book.png';
 import Edit from '../images/edit.png';
 import Sneezy from '../images/sneezy.png';
+import Search from '../images/search.png';
 import Logout from '../images/logout.svg';
 
 const Home = (props) => {
@@ -24,6 +25,11 @@ const Home = (props) => {
         props.logOut()
     }
 
+    const handleInput = (event) => {
+        this.props.updateFilterState(event.target.value)
+    }
+
+
     return (
         <div>
             <header className="header">
@@ -32,7 +38,10 @@ const Home = (props) => {
                     <h1>impasta syndrome</h1>
                     <h2> a recipe app for those of us at wheat's end</h2>
                 </div>
-                {/* <Searchbar /> */}
+                <div className="search-bar">
+                    <input type="text" onChange={handleInput} value={props.filter}></input>
+                    <button id="search"></button>
+                </div>
                 <img src={Logout} alt="bread icon labelled 'log out'" id="bread" onClick={handleLogOut}></img>
             </header>
             <div className="home-wrapper">

@@ -39,7 +39,6 @@ const RecipeCard = (props) => {
     
   }
 
-  console.log(modalIsOpen)
   const showRecipeCard = () =>{
       if (props.recipe){
           return <div className="recipe-card" onClick={setModalIsOpenToTrue}>
@@ -47,7 +46,7 @@ const RecipeCard = (props) => {
           <img src={props.recipe.image}/>
           <p>click to see recipe details</p>
           <Modal isOpen={modalIsOpen} onRequestClose={()=> setModalIsOpen(false)}>
-            <button onClick={setModalIsOpenToFalse}>x</button>
+            <button className="modal" id="exit" onClick={setModalIsOpenToFalse}></button>
             <div className="modal-wrapper">
               <div className="column-one">
                 <h4 className="modal">{props.recipe.recipe_title}</h4>
@@ -64,8 +63,8 @@ const RecipeCard = (props) => {
                   {renderInstructionsList()}
                 </ol>
                 <div className="button-wrapper">
-                  <button className="modal" id="edit">edit</button>
-                  <button className="modal" id="delete" onClick={handleDelete}>delete</button>
+                  <button className="modal" id="edit"></button>
+                  <button className="modal" id="delete" onClick={handleDelete}></button>
                 </div>
               </div>
             </div>
