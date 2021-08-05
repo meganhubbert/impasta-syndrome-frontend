@@ -75,8 +75,9 @@ main.signup {
 }
 
 main img.login {
-    height: 300px;
+    height: 250px;
     transform: rotate(-15deg);
+    margin-top: 20vh;
 }
 
 input, select {
@@ -123,6 +124,55 @@ main.login p {
   font-size: 15pt;
 } 
 
+a.instagram-feed {
+  display: flex;
+  flex-wrap: wrap;
+  width: 30vw;
+  margin: 20px auto 0 auto;
+  justify-content: center;
+}
+
+a.instagram-feed img{
+  height: 125px;
+  width: 125px;
+  object-fit: cover;
+  margin: 5px;
+  justify-items: center;
+}
+
+div.social-links {
+  margin-top: 20px;
+}
+
+div.social-links button {
+  margin: 5px;
+  height: 30px;
+  width: 30px;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+div.social-links button:hover {
+  height: 35px;
+  width: 35px;
+}
+
+div.social-links button#twitter{
+  background-image: url(./images/twitter.png);
+  background-size: cover;
+}
+
+div.social-links button#instagram{
+  background-image: url(./images/instagram.png);
+  background-size: cover;
+}
+
+div.social-links button#pinterest{
+  background-image: url(./images/pinterest.png);
+  background-size: cover;
+}
 /* =============================== Header =============================== */
 header.header {
   display: flex;
@@ -413,4 +463,48 @@ p.modal{
   font-family: 'Sacramento', 'sans-serif';
   font-size: 18pt;
   margin: 10px;
+}
+
+/* =============================== Recipe Books Page =============================== */
+
+div.recipe-books {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100vw;
+  margin-top: 50px;
+}
+
+h2.recipe-books {
+  font-family: 'Sue Ellen Francisco', sans-serif;
+  font-size: 34pt;
+  font-weight: 400;
+}
+
+div.recipe-books img {
+  width: 150px;
+  margin-bottom: 0;
+}
+
+div.recipe-books img:hover {
+  transform: rotate(-10deg);
+}
+
+div.recipe-books h3 {
+  font-weight: 400;
+  margin-top: 0;
+}
+
+div.recipe-books h3:hover, div.recipe-books a:hover {
+  color: #EBB8B1;
+  font-weight: 700;
+}
+
+/* =============================== Recipe Collection Pages =============================== */
+
+div.recipe-book-collection {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  margin: auto;
+  justify-content: center;
 }

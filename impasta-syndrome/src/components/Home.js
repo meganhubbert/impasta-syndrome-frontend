@@ -1,5 +1,6 @@
 import React from 'react';
 import {useHistory} from 'react-router';
+import { Link } from 'react-router-dom';
 import RecipeCard from './RecipeCard';
 import Book from '../images/recipe-book.png';
 import Edit from '../images/edit.png';
@@ -11,9 +12,12 @@ const Home = (props) => {
 
     const history = useHistory();
 
+    let newRecipeArray = props.user.recipes.filter(recipe => {
+        return recipe.recipe_title.toLowerCase().includes(props.filter.toLowerCase())})
+
     const showRecipeCards = () =>{
         if (props.user.recipes){
-            return props.user.recipes.map(recipe => <RecipeCard key={recipe.id} recipe={recipe} deleteRecipe={props.deleteRecipe}/>)
+            return newRecipeArray.map(recipe => <RecipeCard key={recipe.id} recipe={recipe} deleteRecipe={props.deleteRecipe}/>)
         }
     }
 
@@ -26,7 +30,7 @@ const Home = (props) => {
     }
 
     const handleInput = (event) => {
-        this.props.updateFilterState(event.target.value)
+        props.updateFilterState(event.target.value)
     }
 
 
@@ -47,7 +51,7 @@ const Home = (props) => {
             <div className="home-wrapper">
                 <div className="welcome">
                     <h3>welcome back, {props.user.username}!</h3>
-                    <img src={Book} alt="logo of a recipe book" />
+                    <Link to='/recipe-book'><img src={Book} alt="logo of a recipe book" /></Link>
                     <p>your recipe books</p>
                     <img src={Edit} alt="pencil" onClick={handleCreateRecipeClick} />
                     <p>create a new recipe</p>

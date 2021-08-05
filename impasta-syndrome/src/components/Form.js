@@ -1,6 +1,13 @@
 import React, {Component} from 'react';
 import Sneezy from '../images/sneezy.png';
 import { Link } from 'react-router-dom';
+import Bread from '../images/bread.jpg';
+import Brownies from '../images/brownies.jpg';
+import Cupcakes from '../images/cupcakes.jpg';
+import Donuts from '../images/donuts.jpg';
+import Empanadas from '../images/empanadas.jpg';
+import Waffles from '../images/waffles.jpg';
+
 
 class Form extends Component {
 
@@ -19,10 +26,6 @@ class Form extends Component {
         this.setState({
             [name]: value
         })
-    }
-
-    handleClick = (e) => {
-        
     }
 
     render (){
@@ -59,6 +62,23 @@ class Form extends Component {
                         <input className="form-submit" type="submit" value="submit"/>
                     </form>
                     <Link to={link}>{formPar}</Link>
+                </section>
+                <section className="social">
+                    <h2 className="login">let's get social</h2>
+                    <a target="_blank" href="https://www.instagram.com/impastasyndrome2021/" className="instagram-feed">
+                        <img src={Waffles} alt="waffles"></img>
+                        <img src={Cupcakes} alt="cupcakes"></img>
+                        <img src={Bread} alt="bread"></img>
+                        <img src={Donuts} alt="donuts"></img>
+                        <img src={Empanadas} alt="empanadas"></img>
+                        <img src={Brownies} alt="brownies"></img>
+                    </a>
+                    <div className="social-links">
+                        <a target="_blank" href="https://twitter.com/impastasyndrom"><button id="twitter"></button></a>
+                        <a target="_blank" href="https://www.instagram.com/impastasyndrome2021/"><button id="instagram"></button></a>
+                        <a target="_blank" href="https://www.pinterest.com/Impastasyndrome"><button id="pinterest"></button></a>
+                    </div>
+
                 </section>
         </main>
         </article>

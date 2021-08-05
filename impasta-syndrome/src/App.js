@@ -4,6 +4,12 @@ import {Switch, Route, withRouter, Redirect} from 'react-router-dom';
 import Form from './components/Form';
 import Home from './components/Home';
 import AddRecipeForm from './components/AddRecipeForm';
+import RecipeBooks from './components/RecipeBooks';
+import BreakfastBook from './components/BreakfastBook';
+import LunchBook from './components/LunchBook';
+import DinnerBook from './components/DinnerBook';
+import DessertBook from './components/DessertBook';
+import SnackBook from './components/SnackBook';
 
 class App extends React.Component {
 
@@ -128,7 +134,6 @@ class App extends React.Component {
         deleteRecipe={this.deleteRecipe}
         filter={this.state.filter}
         updateFilterState={this.updateFilterState}
-        arrayOfRecipes={this.newArrayOfRecipes}
       />
     } else {
       return <Redirect to="/login" />
@@ -147,6 +152,68 @@ class App extends React.Component {
     }
   }
 
+  renderRecipeBooks = () => {
+    if(this.state.token){
+      return <RecipeBooks 
+        token = {this.state.token}
+        user = {this.state}
+        logOut={this.logOut}
+      />
+    } else {
+      return <Redirect to="/login" />
+    }
+  }
+
+  renderBreakfastBook = () => {
+    if(this.state.token){
+      return <BreakfastBook 
+        user = {this.state}
+        logOut={this.logOut}
+        deleteRecipe={this.deleteRecipe}
+      />
+    }
+  }
+
+  renderLunchBook = () => {
+    if(this.state.token){
+      return <LunchBook 
+        user = {this.state}
+        logOut={this.logOut}
+        deleteRecipe={this.deleteRecipe}
+      />
+    }
+  }
+
+  renderDinnerBook = () => {
+    if(this.state.token){
+      return <DinnerBook 
+        user = {this.state}
+        logOut={this.logOut}
+        deleteRecipe={this.deleteRecipe}
+      />
+    }
+  }
+
+  renderDessertBook = () => {
+    if(this.state.token){
+      return <DessertBook 
+        user = {this.state}
+        logOut={this.logOut}
+        deleteRecipe={this.deleteRecipe}
+      />
+    }
+  }
+
+  renderSnackBook = () => {
+    if(this.state.token){
+      return <SnackBook 
+        user = {this.state}
+        logOut={this.logOut}
+        deleteRecipe={this.deleteRecipe}
+      />
+    }
+  }
+
   updateFilterState= (value) => {
     this.setState({
       filter: value
@@ -154,10 +221,6 @@ class App extends React.Component {
   }
 
   render() {
-    let arrayOfRecipes = this.state.recipes
-    let newArrayOfRecipes = arrayOfRecipes.filter((recipeObj) => { 
-      return (recipeObj.recipe_title.toLowerCase().includes(this.state.filter.toLowerCase()))
-      })
 
     return (
         <div className="app">
@@ -166,6 +229,12 @@ class App extends React.Component {
             <Route exact path="/" render={this.renderForm} />
             <Route path="/signup" render={this.renderForm} />
             <Route path="/new-recipe" render={this.renderAddRecipeForm} />
+            <Route path="/recipe-book" render={this.renderRecipeBooks} />
+            <Route path="/breakfast-recipes" render={this.renderBreakfastBook} />
+            <Route path="/lunch-recipes" render={this.renderLunchBook} />
+            <Route path="/dinner-recipes" render={this.renderDinnerBook} />
+            <Route path="/dessert-recipes" render={this.renderDessertBook} />
+            <Route path="/snack-recipes" render={this.renderSnackBook} />
             <Route render={ () => <p>Page not Found</p> } />
           </Switch>
         </div>
