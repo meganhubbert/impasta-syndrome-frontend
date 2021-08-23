@@ -25,7 +25,7 @@ class App extends React.Component {
 
   componentDidMount(){
     if(localStorage.token){
-      fetch("http://localhost:3000/me", {
+      fetch("https://impasta-syndrome.herokuapp.com/me", {
         headers: {
           "authorization": localStorage.token
         }
@@ -37,7 +37,7 @@ class App extends React.Component {
 
   handleLoginSubmit = (userInfo) => {
     console.log("Login form has been submitted")
-    fetch("http://localhost:3000/login", {
+    fetch("https://impasta-syndrome.herokuapp.com/login", {
       method: "POST",
       headers: {
         "Content-type": "application/json"
@@ -53,7 +53,7 @@ class App extends React.Component {
 
   handleRegisterSubmit = (userInfo) => {
     console.log("Register form has been submitted")
-    fetch("http://localhost:3000/users", {
+    fetch("https://impasta-syndrome.herokuapp.com/users", {
       method: "POST",
       headers: {
         "Content-type": "application/json"
