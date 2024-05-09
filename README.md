@@ -8,8 +8,6 @@ A recipe app for storing and sorting through your favorite gluten-free recipes.
 frontend - https://github.com/meganeday/impasta-syndrome-frontend
 <br>
 backend - https://github.com/meganeday/meganeday-impasta-syndrome-backend
-<br>
-live demo - https://impasta-syndrome.netlify.app/
 </div>
 <hr>
 
